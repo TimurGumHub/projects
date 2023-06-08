@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-o",
+                "test",
+                "-IC:/OpenSSL/include/openssl",
+                "-LC:/OpenSSL/lib",
+                "main.c",
+                "-lsqlite3",
+                "-lcrypto",
+                "-IC:/sqlite/sqlite-amalgamation-3420000",
+                "-IC:/sqlite",
+                "-LC:/OpenSSL/lib",
+                "-IC:/OpenSSL/include"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
