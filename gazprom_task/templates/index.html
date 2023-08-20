@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Учёт посещений</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+</head>
+<body>
+    <h1>Учёт посещений тренажерного зала и бассейна:</h1>
+    
+    <!-- Форма для добавления посещения -->
+    <h2>Информация о посещении</h2>
+    <form action="/add_visit" method="POST">
+        <label for="member_name">Имя члена семьи:</label>
+        <input type="text" id="member_name" name="member_name" required><br><br>
+        <label for="date_visited">Дата посещения:</label>
+        <input type="date" id="date_visited" name="date_visited" required><br><br>
+        <label for="cost">Потраченные деньги:</label>
+        <input type="number" id="cost" name="cost" step="100" required><label for="cost" style="white-space: nowrap;"> рублей</label>
+        <div style="text-align: center;"><br>
+            <button type="submit">Добавить посещение</button>
+        </div>
+    </form>
+
+    <!-- Вывод списка посещений -->
+    <h2>Список посещений</h2>
+    <table>
+        <tr>
+            <th class="center-text">Имя</th>
+            <th class="center-text">Дата</th>
+            <th class="center-text">Потраченные деньги</th>
+        </tr>
+        {% for visit in visits %}
+        <tr>
+            <td class="center-text">{{ visit[1] }}</td> <!-- Имя члена семьи -->
+            <td class="center-text">{{ visit[2] }}</td> <!-- Дата посещения -->
+            <td class="center-text">{{ visit[3] }} рублей</td> <!-- Потраченные деньги -->
+            <td><a href="{{ url_for('delete_visit', visit_id=visit[0]) }}">Удалить</a></td> <!-- Кнопка удаления -->
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
