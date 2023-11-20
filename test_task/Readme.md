@@ -13,7 +13,7 @@ C:\Users\Timur\projects\test_task>service.exe
 Он предлагает ввести данные:
 Enter the string:
 
-Если верно,то он отвечает: Row saved successfully!
+Если верно, т.е. данные не повторяются,то он отвечает: Row saved successfully!
 Если встречает дубликат: Error!
 
 
